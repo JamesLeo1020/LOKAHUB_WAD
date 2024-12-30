@@ -10,6 +10,7 @@
             <p class="text-muted mb-md-0">Explore what our community has to offer</p>
         </div>
         <div class="col-md-6 text-md-end">
+            <a href="{{ route('products.print') }}" class="btn btn-primary">Print Products</a>
             <a href="{{ route('products.create') }}" class="btn btn-primary">
                 <i class="fas fa-plus-circle me-2"></i>Add New Product
             </a>

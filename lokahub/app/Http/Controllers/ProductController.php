@@ -92,4 +92,12 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('products.index')->with('success', 'Product deleted successfully!');
     }
+
+    public function printProducts()
+    {
+        $products = Product::all(); // Fetch all products
+        $pdf = PDF::loadView('products_pdf', compact('products')); // Load the view with data
+        return $pdf->download('products.pdf'); // Download the PDF
+    }
 }
+
