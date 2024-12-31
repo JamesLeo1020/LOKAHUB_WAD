@@ -1,19 +1,18 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
-<h1>Hapus About</h1>
-<p>Apakah Anda yakin ingin menghapus informasi berikut?</p>
-<div>
-    <h2>{{ $about->title }}</h2>
-    <p>{{ $about->description }}</p>
-    @if ($about->image)
-        <img src="{{ asset('storage/' . $about->image) }}" alt="Gambar" width="200">
-    @endif
+<div class="container">
+    <h1>Delete About Us</h1>
+
+    <div class="alert alert-warning">
+        <strong>Warning!</strong> Are you sure you want to delete the "About Us" section titled "<strong>{{ $about->title }}</strong>"?
+    </div>
+
+    <form action="{{ route('admin.about.destroy', $about->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{{ route('admin.about.index') }}" class="btn btn-secondary">Cancel</a>
+    </form>
 </div>
-<form action="{{ route('admin.about.destroy', $about->id) }}" method="POST">
-    @csrf
-    @method('DELETE')
-    <button type="submit">Hapus</button>
-    <a href="{{ route('admin.about.index') }}">Batal</a>
-</form>
 @endsection

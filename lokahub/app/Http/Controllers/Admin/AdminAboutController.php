@@ -16,17 +16,20 @@ class AdminAboutController extends Controller
     //     $this->middleware('auth');
     // }
 
+    // Menampilkan seluruh About Us
     public function index()
     {
         $abouts = About::all();
         return view('admin.about.index', compact('abouts'));
     }
 
+    // Menampilkan form untuk membuat About Us baru
     public function create()
     {
         return view('admin.about.create');
     }
 
+    // Menyimpan About Us baru ke database
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -44,12 +47,14 @@ class AdminAboutController extends Controller
         return redirect()->route('admin.about.index')->with('success', 'About berhasil ditambahkan!');
     }
 
+    // Menampilkan form untuk mengedit About Us
     public function edit($id)
     {
         $about = About::findOrFail($id);
         return view('admin.about.edit', compact('about'));
     }
 
+    // Mengupdate About Us yang ada
     public function update(Request $request, $id)
     {
         $about = About::findOrFail($id);
@@ -73,6 +78,7 @@ class AdminAboutController extends Controller
         return redirect()->route('admin.about.index')->with('success', 'About berhasil diupdate!');
     }
 
+    // Menghapus About Us
     public function destroy($id)
     {
         $about = About::findOrFail($id);
@@ -84,7 +90,7 @@ class AdminAboutController extends Controller
         return redirect()->route('admin.about.index')->with('success', 'About berhasil dihapus!');
     }
 
-    // Function for printing all abouts
+    // Fungsi untuk mencetak seluruh About Us
     public function print()
     {
         $abouts = About::all();
