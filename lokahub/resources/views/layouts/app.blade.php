@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
@@ -39,6 +38,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white custom-shadow sticky-top">
         <div class="container">
+            <a class="navbar-brand text-primary" href="{{ route('landing') }}">
             <a class="navbar-brand text-primary" href="{{ route('home') }}">
                 <i class="fas fa-store me-2"></i>Loka Hub
             </a>
@@ -47,6 +47,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="{{ route('categories.create') }}">
+                            <i class="fas fa-envelope me-1"></i>Create Categories
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link fw-semibold" href="{{ route('products.index') }}">
                             <i class="fas fa-shopping-bag me-1"></i>Products
@@ -61,6 +66,16 @@
                         <a class="nav-link fw-semibold" href="{{ route('contact') }}">
                             <i class="fas fa-envelope me-1"></i>Contact
                         </a>
+                    </li>
+                    <!-- Admin Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarAdminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-cogs me-1"></i>Admin
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarAdminDropdown">
+                            <li><a class="dropdown-item" href="{{ route('admin.about.index') }}">Manage About</a></li>
+                            <!-- Tambahkan link admin lainnya jika perlu -->
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -101,7 +116,9 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-=======
+</body>
+</html>
+</html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
