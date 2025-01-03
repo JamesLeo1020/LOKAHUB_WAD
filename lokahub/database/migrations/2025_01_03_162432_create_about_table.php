@@ -7,18 +7,26 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Jalankan migrasi untuk membuat tabel.
+     *
+     * @return void
      */
     public function up()
     {
         Schema::create('about', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('content');
-            $table->timestamps();
+            $table->string('title');  // Kolom untuk judul
+            $table->text('description');  // Kolom untuk deskripsi
+            $table->string('image')->nullable();  // Kolom untuk gambar (nullable)
+            $table->timestamps();  // Kolom created_at dan updated_at
         });
     }
     
+    /**
+     * Membalikkan migrasi jika terjadi kesalahan.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('about');
