@@ -268,6 +268,7 @@
                 <h1>Discover Sustainable Shopping</h1>
                 <p>Join our modern marketplace where quality meets sustainability. Find unique pre-loved items and make a positive impact on the environment.</p>
                 <div class="button-group">
+                    <a href="{{ route('home') }}" class="btn btn-primary">Home</a>
                     <a href="/login" class="btn btn-primary">Login</a>
                     <a href="/register" class="btn btn-secondary">Sign Up</a>
                 </div>

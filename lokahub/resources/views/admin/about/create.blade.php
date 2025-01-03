@@ -35,11 +35,6 @@
                    <label for="vision" class="form-label">Vision</label>
                    <textarea class="form-control" id="vision" name="vision" rows="3"></textarea>
                </div>
-
-               <div class="mb-3">
-                   <label for="image" class="form-label">Image</label>
-                   <input type="file" class="form-control" id="image" name="image">
-               </div>
            </div>
        </div>
 
