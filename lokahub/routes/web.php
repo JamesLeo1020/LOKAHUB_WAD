@@ -13,7 +13,6 @@ use App\Http\Controllers\RatingReviewController;
 use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ImageUploadController;
 
 
@@ -63,7 +62,6 @@ Route::resource('products', ProductController::class);
 // Route::get('/images', [ImageUploadController::class, 'listImages'])->name('images.list');
 
 Route::get('/products/print', [ProductController::class, 'printProducts'])->name('products.print');
-=======
     return view('landing');
 })->name('landing');
 
