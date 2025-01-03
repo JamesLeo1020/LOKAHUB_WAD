@@ -41,10 +41,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 
 // Product Routes
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
-Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::resource('products', ProductController::class);
+Route::get('/upload', [ImageUploadController::class, 'showForm'])->name('image.form');
+Route::post('/upload', [ImageUploadController::class, 'upload'])->name('image.upload');
+Route::get('/images', [ImageUploadController::class, 'listImages'])->name('images.list');
+Route::get('/products/print', [ProductController::class, 'printProducts'])->name('products.print');
+// Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+// Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+// Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+// Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
 // Categories Routes
 Route::get('/categories/create', function () {
@@ -63,8 +68,3 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('tasks', TaskController::class);
 });
 
-Route::resource('products', ProductController::class);
-Route::get('/upload', [ImageUploadController::class, 'showForm'])->name('image.form');
-Route::post('/upload', [ImageUploadController::class, 'upload'])->name('image.upload');
-Route::get('/images', [ImageUploadController::class, 'listImages'])->name('images.list');
-Route::get('/products/print', [ProductController::class, 'printProducts'])->name('products.print');
