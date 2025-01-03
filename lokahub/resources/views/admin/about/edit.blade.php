@@ -14,15 +14,7 @@
                 <label for="description">Deskripsi</label>
                 <textarea name="description" id="description" class="form-control" required>{{ old('description', $about->description) }}</textarea>
             </div>
-            <div class="form-group">
-                <label for="image">Gambar</label>
-                <input type="file" name="image" id="image" class="form-control">
-                @if ($about->image)
-                    <div class="mt-2">
-                        <img src="{{ Storage::url($about->image) }}" width="100" alt="Image">
-                    </div>
-                @endif
-            </div>
+
             <button type="submit" class="btn btn-success mt-3">Update</button>
         </form>
     </div>

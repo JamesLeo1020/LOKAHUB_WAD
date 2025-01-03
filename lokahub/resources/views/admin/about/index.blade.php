@@ -9,7 +9,6 @@
                 <tr>
                     <th>Title</th>
                     <th>Description</th>
-                    <th>Image</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -18,11 +17,6 @@
                     <tr>
                         <td>{{ $about->title }}</td>
                         <td>{{ Str::limit($about->description, 50) }}</td>
-                        <td>
-                            @if ($about->image)
-                                <img src="{{ Storage::url($about->image) }}" width="100" alt="Image">
-                            @endif
-                        </td>
                         <td>
                             <a href="{{ route('admin.about.edit', $about->id) }}" class="btn btn-warning">Edit</a>
                             <form action="{{ route('admin.about.destroy', $about->id) }}" method="POST" class="d-inline">
